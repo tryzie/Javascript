@@ -20,13 +20,13 @@ function checkPasswordStrength(password) {
 
     if(score === 5) {
         strengthText.textContent = "STRONG"
-        console.log("password is Strong");
+        //strengthText.className ="strength strong"
     }else if(score===3 || score===4) {
         strengthText.textContent = "MEDIUM"
-        console.log("password is medium");
+        //strengthText.className ="strength medium"
     } else {
         strengthText.textContent = "WEAK"
-        console.log("password is weak");
+        //strengthText.className ="strength weak"
     }
 }
 

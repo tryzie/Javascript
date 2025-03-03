@@ -1,9 +1,11 @@
 
 function splitSentence(sentence) {
-    wordsArray = [];
-    word = "";
+   let wordsArray = [];
+   let word = "";
+
     for (let i = 0; i < sentence.length; i++) {
         char = sentence[i];
+
         if (char>= "A" && char<="Z" ||
             char>= "a" && char<="z" ||
             char>= "0" && char<="9"
@@ -52,8 +54,7 @@ function numberOfVowels(text) {
 }
 
 function truncateWords(text, number) {
-    //text = text.trim();
-    truncatedWord ="";
+   let  truncatedWord ="";
     for (let i = 0; i < number && i<text.length; i++) {
         if (text[i] !== " ") {
         truncatedWord += text[i];

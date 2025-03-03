@@ -24,7 +24,7 @@ function splitSentence(sentence) {
         }
     }
 
-    // Push the last word if it exists (handles case where sentence ends with a letter/number)
+    // Push the last word if it exists
     if (word.length > 0) {
         wordsArray.push(word.toLowerCase());
     }

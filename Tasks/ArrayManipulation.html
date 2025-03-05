@@ -1,0 +1,42 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ArrayManipulation</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script src="ArrayManipulation.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Operations</title>
+</head>
+<body>
+
+<h2>Choose an Operation</h2>
+
+<label for="userInput">Enter numbers or text (comma-separated):</label>
+<input type="text" id="userInput" placeholder="Example: 200, 580, 642, 100">
+
+<label for="operation">Select Operation:</label>
+<select id="operation">
+    <option value="min">Find Minimum</option>
+    <option value="max">Find Maximum</option>
+    <option value="sum">Find Sum</option>
+    <option value="removeDuplicates">Remove Duplicates</option>
+</select>
+
+<button onclick="performOperation()">Perform Operation</button>
+
+<h3>Result:</h3>
+<p id="result"></p>
+
+<script src="ArrayManipulation.js"></script>
+
+</body>
+</html>

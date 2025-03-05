@@ -1,0 +1,54 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>TypeCase</title>-->
+<!--</head>-->
+<!--<body>-->
+<!-- <h1>TypeCase</h1>-->
+
+
+<!--<script src="TypeCase.js"> </script>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Case Converter</title>
+    <link rel="stylesheet" href="pageStyle.css">
+</head>
+<body>
+
+<div class="task-container">
+    <h2>Type Case Converter</h2>
+
+    <!-- User Input -->
+    <label for="sentence">Enter a sentence:</label>
+    <input type="text" id="sentence" placeholder="Type your sentence here..." />
+
+    <!-- Dropdown for Format Selection -->
+    <label for="format">Choose a format:</label>
+    <select id="format">
+        <option value="camel">Camel Case</option>
+        <option value="snake">Snake Case</option>
+        <option value="kebab">Kebab Case</option>
+        <option value="pascal">Pascal Case</option>
+        <option value="uppercasesnake">Uppercase Snake Case</option>
+    </select>
+
+    <!-- Convert Button -->
+    <button onclick="convertText()">Convert</button>
+
+    <!-- Output Area -->
+    <h3>Converted Text:</h3>
+    <p id="output">Your result will appear here...</p>
+</div>
+
+<script src="TypeCase.js"></script>
+
+</body>
+</html>

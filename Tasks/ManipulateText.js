@@ -95,17 +95,36 @@ function splitSentence(sentence) {
     return wordsArray;
 }
 
+// function reverseString(text) {
+//     let words = splitSentence(text);
+//     let reversedWords = words.map(word => word.split("").reverse().join(""));
+//     return reversedWords.join(" ");
+// }
+
 function reverseString(text) {
-    let words = splitSentence(text);
-    let reversedWords = words.map(word => word.split("").reverse().join(""));
-    return reversedWords.join(" ");
+    text = splitSentence(text);
+    let  reversedWords = [];
+
+    for (let i = 0; i < text.length; i++) {
+        let reversedWord = "";
+
+        for (let j = text[i].length - 1; j >= 0; j--) {
+            reversedWord += text[i][j];
+        }
+        reversedWords.push(reversedWord);
+
+    }
+    return  reversedSentence = reversedWords.join(' ');
+
 }
+
+
 
 function numberOfVowels(text) {
     let count = 0;
     for (let i = 0; i < text.length; i++) {
-        let char = text[i].toLowerCase();
-        if ("aeiou".includes(char)) {
+        char = text[i].toLowerCase();
+        if (char==="a"|| char==="e"|| char==="i" || char==="o" || char==="u" ) {
             count++;
         }
     }
@@ -145,9 +164,6 @@ function performOperation() {
     let result;
 
     switch (operation) {
-        case "splitSentence":
-            result = splitSentence(textInput).join(", ");
-            break;
         case "reverseString":
             result = reverseString(textInput);
             break;

@@ -3,40 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>JavaScriptTask UI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container">
-    <!-- Sidebar with Task Links -->
-    <aside class="sidebar">
-        <h2>Tasks</h2>
-        <ul>
-            <li><a href="#" onclick="loadTask('DataType')">Data Type</a></li>
-            <li><a href="#" onclick="loadTask('TypeCase')">Type Case</a></li>
-            <li><a href="#" onclick="loadTask('ManipulateText')">Manipulate Text</a></li>
-            <li><a href="#" onclick="loadTask('GetInitials')">Get Initials</a></li>
-            <li><a href="#" onclick="loadTask('CheckPasswordStrength')">Check Password Strength</a></li>
-            <li><a href="#" onclick="loadTask('ArrayManipulation')">Array Manipulation</a></li>
-        </ul>
-    </aside>
+<!-- Sidebar -->
+<nav>
+    <ul>
+        <li><a href="#" onclick="showTask('dataType')">Data Type</a></li>
+        <li><a href="#" onclick="showTask('typeCase')">Type Case</a></li>
+        <li><a href="#" onclick="showTask('manipulateText')">Manipulate Text</a></li>
+        <li><a href="#" onclick="showTask('getInitials')">Get Initials</a></li>
+        <li><a href="#" onclick="showTask('checkPasswordStrength')">Password Strength</a></li>
+        <li><a href="#" onclick="showTask('arrayManipulation')">Array Manipulation</a></li>
+    </ul>
+</nav>
 
 
 
-    <main class="content">
-        <h1 id="task-title">JavaScript Task</h1>
-        <div id="task-container">
-            <p>Select a task from the sidebar.</p>
+
+<!-- Main Content -->
+<div id="homePage">
+    <h2>Hello User, Want to Perform some exciting javascript </h2>
+<div id="mainContent">
+    <div id="dataType" class="task-section">
+        <h2>Data Type Checker</h2>
+        <input type="text" id="dataInput" placeholder="Enter value">
+        <button onclick="checkDataType()">Check Type</button>
+        <p>Type: <span id="dataTypeResult"></span></p>
+    </div>
+
+
+    <div id = "typeCase" class="task-section">
+        <h2>Type Case Converter</h2>
+
+        <!-- User Input -->
+        <label for="sentence">Enter a sentence:</label>
+        <input type="text" id="sentence" placeholder="Type your sentence here..." />
+
+        <!-- Dropdown for Format Selection -->
+        <label for="format">Choose a format:</label>
+        <select id="format">
+            <option value="camel">Camel Case</option>
+            <option value="snake">Snake Case</option>
+            <option value="kebab">Kebab Case</option>
+            <option value="pascal">Pascal Case</option>
+            <option value="uppercasesnake">Uppercase Snake Case</option>
+        </select>
+
+        <!-- Convert Button -->
+        <button onclick="convertText()">Convert</button>
+
+        <!-- Output Area -->
+        <h3>Converted Text:</h3>
+        <p id="output">Your result will appear here...</p>
+    </div>
+
+    <div id = "manipulateText" class="task-section">
+        <h2>Text Operations</h2>
+
+        <label for="textInput">Enter text:</label>
+        <input type="text" id="textInput">
+
+        <label for="operation">Choose an operation:</label>
+        <select id="operationChosen">
+            <option value="reverseString">Reverse String</option>
+            <option value="numberOfVowels">Number of Vowels</option>
+            <option value="truncateWords">Truncate Words</option>
+        </select>
+
+        <!-- Truncation length input (hidden initially) -->
+        <div id="truncateSection" style="display: none;">
+            <label for="truncateLength">Truncate Length:</label>
+            <input type="number" id="truncateLength" min="1">
         </div>
-    </main>
 
+        <button onclick="performOperation1()">Check</button>
+
+        <h3>Result:</h3>
+        <p id="resultManipulated"></p>
+    </div>
+
+    <div id = "getInitials" class="task-section">
+        <h2>Enter a Name or Sentence to Get Initials</h2>
+
+        <label for="userInput">Enter text:</label>
+        <input type="text" id="initialUserInput" placeholder="Type here...">
+
+        <button onclick="generateInitials()">Generate Initials</button>
+
+        <h3>Result:</h3>
+        <p id="resultedInitials"></p>
+    </div>
+
+    <div id="checkPasswordStrength" class="task-section">
+        <h2>Password Strength Checker</h2>
+        <input id="password" type="password" placeholder="Enter password">
+        <p>Password Strength: <span id="strengthText">Waiting...</span></p>
+    </div>
+
+    <div id="arrayManipulation" class="task-section">
+        <h2>Array Manipulation</h2>
+        <label for="userInput">Enter numbers or text (comma-separated):</label>
+        <input type="text" id="userInput" placeholder="Example: 200, 580, 642, 100">
+        <label for="operation">Select Operation:</label>
+        <select id="operation">
+            <option value="min">Find Minimum</option>
+            <option value="max">Find Maximum</option>
+            <option value="sum">Find Sum</option>
+            <option value="removeDuplicates">Remove Duplicates</option>
+        </select>
+        <button onclick="performOperation()">Perform Operation</button>
+        <h3>Result:</h3>
+        <p id="result"></p>
+    </div>
+</div>
 </div>
 
 <script src="script.js"></script>
+<script src="Tasks/DataType.js"></script>
+<script src="Tasks/TypeCase.js"></script>
+<script src="Tasks/ManipulateText.js"></script>
+<script src="Tasks/GetInitials.js"></script>
+<script src="Tasks/CheckPasswordStrength.js"></script>
+<script src="Tasks/ArrayManipulation.js"></script>
+
 </body>
 </html>
-
 
 
 

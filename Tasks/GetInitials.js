@@ -1,3 +1,52 @@
+function splitSentence(sentence) {
+    let wordsArray = [];
+    let word = "";
+
+    for (let i = 0; i < sentence.length; i++) {
+        let char = sentence[i];
+
+        if ((char >= 'a' && char <= 'z') ||
+            (char >= 'A' && char <= 'Z') ||
+            (char >= '0' && char <= '9')) {
+            word += char;
+        } else {
+            if (word.length > 0) {
+                wordsArray.push(word);
+                word = "";
+            }
+        }
+    }
+
+    if (word.length > 0) {
+        wordsArray.push(word);
+    }
+
+    return wordsArray;
+}
+
+function getInitials(sentence) {
+    if (typeof sentence !== "string" || sentence.trim() === "") {
+        return "Invalid input!";
+    }
+
+    let words = splitSentence(sentence);
+    let initials = "";
+
+    for (let i = 0; i < words.length; i++) {
+        initials += words[i].charAt(0).toUpperCase();
+    }
+
+    return initials || "No initials found!";
+}
+
+function generateInitials() {
+    let userInput = document.getElementById("initialUserInput").value;
+    let result = getInitials(userInput);
+    document.getElementById("resultedInitials").textContent = `Initials: ${result}`;
+}
+
+
+
 //
 // function splitSentence(sentence) {
 //     /*
@@ -55,50 +104,3 @@
 // console.log(getInitials("[]"));
 // console.log(getInitials("martin: Luther"));
 
-
-function splitSentence(sentence) {
-    let wordsArray = [];
-    let word = "";
-
-    for (let i = 0; i < sentence.length; i++) {
-        let char = sentence[i];
-
-        if ((char >= 'a' && char <= 'z') ||
-            (char >= 'A' && char <= 'Z') ||
-            (char >= '0' && char <= '9')) {
-            word += char;
-        } else {
-            if (word.length > 0) {
-                wordsArray.push(word);
-                word = "";
-            }
-        }
-    }
-
-    if (word.length > 0) {
-        wordsArray.push(word);
-    }
-
-    return wordsArray;
-}
-
-function getInitials(sentence) {
-    if (typeof sentence !== "string" || sentence.trim() === "") {
-        return "Invalid input!";
-    }
-
-    let words = splitSentence(sentence);
-    let initials = "";
-
-    for (let i = 0; i < words.length; i++) {
-        initials += words[i].charAt(0).toUpperCase();
-    }
-
-    return initials || "No initials found!";
-}
-
-function generateInitials() {
-    let userInput = document.getElementById("userInput").value;
-    let result = getInitials(userInput);
-    document.getElementById("result").textContent = `Initials: ${result}`;
-}

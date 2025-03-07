@@ -1,3 +1,90 @@
+function isString(value) {
+    return typeof value === 'string';
+}
+function isNumber(value) {
+    return typeof value === "number";
+}
+function isBoolean(value) {
+    try {
+        let parsed = JSON.parse(value.toLowerCase());
+        return typeof parsed === "boolean";
+    } catch {
+        return false;
+    }
+}
+function isUndefined(value) {
+    return value === 'undefined';
+}
+function isNull(value) {
+    return value === 'null';
+}
+function isArray(value) {
+    try {
+        return JSON.parse(value) instanceof Array;
+    } catch {
+        return false;
+    }
+}
+function isObject(value) {
+    try {
+        let parsed = JSON.parse(value);
+        return typeof parsed === 'object' && !Array.isArray(parsed) && parsed !== null;
+    } catch {
+        return false;
+    }
+}
+function isFunction(value) {
+    return false; // Can't determine function from string input
+}
+
+function checkDataType() {
+    let inputValue = document.getElementById("dataInput").value;
+    let resultElement = document.getElementById("dataTypeResult");
+
+    let parsedValue;
+
+    // Try converting to number, boolean, null, or object
+    if (!isNaN(inputValue) && inputValue.trim() !== "") {
+        parsedValue = Number(inputValue); // Convert to Number
+    } else if (inputValue.toLowerCase() === "true" || inputValue.toLowerCase() === "false") {
+        parsedValue = inputValue.toLowerCase() === "true"; // Convert to Boolean
+    } else if (inputValue.toLowerCase() === "null") {
+        parsedValue = null; // Convert to Null
+    } else {
+        try {
+            parsedValue = JSON.parse(inputValue); // Try parsing objects or arrays
+        } catch {
+            parsedValue = inputValue; // Keep as String if nothing else works
+        }
+    }
+
+    let result;
+
+    if (isString(parsedValue)) {
+        result = "String";
+    } else if (isNumber(parsedValue)) {
+        result = "Number";
+    } else if (isBoolean(parsedValue)) {
+        result = "Boolean";
+    } else if (isUndefined(parsedValue)) {
+        result = "Undefined";
+    } else if (isNull(parsedValue)) {
+        result = "Null";
+    } else if (isArray(parsedValue)) {
+        result = "Array";
+    } else if (isObject(parsedValue)) {
+        result = "Object";
+    } else if (isFunction(parsedValue)) {
+        result = "Function";
+    } else {
+        result = "Unknown Type";
+    }
+
+    resultElement.innerText = ` ${result}`;
+}
+
+
+
 // function isString(value){
 //     return typeof(value) === 'string'
 //
@@ -162,48 +249,4 @@
 //
 //
 // console.log(isFunction(function (){}));
-//
-//
-//
 
-
-function isString(value) {
-    return typeof value === 'string';
-}
-function isNumber(value) {
-    return !isNaN(value) && value.trim() !== "";
-}
-function isBoolean(value) {
-    return value === 'true' || value === 'false';
-}
-function isUndefined(value) {
-    return value === 'undefined';
-}
-function isNull(value) {
-    return value === 'null';
-}
-function isArray(value) {
-    try {
-        return JSON.parse(value) instanceof Array;
-    } catch {
-        return false;
-    }
-}
-function isObject(value) {
-    try {
-        let parsed = JSON.parse(value);
-        return typeof parsed === 'object' && !Array.isArray(parsed) && parsed !== null;
-    } catch {
-        return false;
-    }
-}
-function isFunction(value) {
-    return false; // Can't determine function from string input
-}
-
-function checkType() {
-    let inputValue = document.getElementById("userInput").value;
-    let selectedFunction = document.getElementById("functionSelect").value;
-    let result = window[selectedFunction](inputValue);
-    document.getElementById("result").innerText = `Result: ${result}`;
-}
